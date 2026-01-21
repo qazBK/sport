@@ -71,6 +71,7 @@
             textBoxPassword.Name = "textBoxPassword";
             textBoxPassword.Size = new Size(250, 29);
             textBoxPassword.TabIndex = 5;
+            textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxLogin
             // 
@@ -91,6 +92,7 @@
             btnGuest.TabIndex = 3;
             btnGuest.Text = "Войти как гость";
             btnGuest.UseVisualStyleBackColor = false;
+            btnGuest.Click += BtnGuest_Click;
             // 
             // btnLogin
             // 

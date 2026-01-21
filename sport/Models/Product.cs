@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace sport.Models;
+﻿namespace sport.Models;
 
 public partial class Product
 {
@@ -27,13 +24,15 @@ public partial class Product
 
     public string? Description { get; set; }
 
-    public virtual Manufacturer IdManufacturerNavigation { get; set; } = null!;
+    public string? Image { get; set; }
 
-    public virtual ProductCatigory IdProductCatigoriNavigation { get; set; } = null!;
+    public virtual Manufacturer Manufacturer { get; set; } = null!;
 
-    public virtual Supplier IdSupplierNavigation { get; set; } = null!;
+    public virtual ProductCatigory ProductCatigory { get; set; } = null!;
 
-    public virtual UnitsOfMeasurement IdUnitNavigation { get; set; } = null!;
+    public virtual Supplier Supplier { get; set; } = null!;
+
+    public virtual UnitsOfMeasurement UnitsOfMeasurement { get; set; } = null!;
 
     public virtual ICollection<OrderProduct> OrderProducts { get; set; } = new List<OrderProduct>();
 }

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace sport.Models;
+﻿namespace sport.Models;
 
 public partial class OrderProduct
 {
@@ -13,7 +10,7 @@ public partial class OrderProduct
 
     public int Count { get; set; }
 
-    public virtual Order IdOrderNavigation { get; set; } = null!;
+    public virtual Order Order { get; set; } = null!;
 
-    public virtual Product IdProductNavigation { get; set; } = null!;
+    public virtual Product Product { get; set; } = null!;
 }

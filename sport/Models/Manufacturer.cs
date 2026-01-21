@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace sport.Models;
+﻿namespace sport.Models;
 
 public partial class Manufacturer
 {

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
 namespace sport.Models;
 
@@ -71,15 +69,15 @@ public partial class SportDbContext : DbContext
             entity.Property(e => e.OrderDate).HasColumnName("order_date");
             entity.Property(e => e.ReceiptCode).HasColumnName("receipt_code");
 
-            entity.HasOne(d => d.IdOrderStatusNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.OrderStatus).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdOrderStatus)
                 .HasConstraintName("fk_orders_to_order_statuses");
 
-            entity.HasOne(d => d.IdPointNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.Point).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdPoint)
                 .HasConstraintName("fk_orders_to_points");
 
-            entity.HasOne(d => d.IdUserNavigation).WithMany(p => p.Orders)
+            entity.HasOne(d => d.User).WithMany(p => p.Orders)
                 .HasForeignKey(d => d.IdUser)
                 .HasConstraintName("fk_orders_to_users");
         });
@@ -95,11 +93,11 @@ public partial class SportDbContext : DbContext
             entity.Property(e => e.IdOrder).HasColumnName("id_order");
             entity.Property(e => e.IdProduct).HasColumnName("id_product");
 
-            entity.HasOne(d => d.IdOrderNavigation).WithMany(p => p.OrderProducts)
+            entity.HasOne(d => d.Order).WithMany(p => p.OrderProducts)
                 .HasForeignKey(d => d.IdOrder)
                 .HasConstraintName("fk_order_products_to_orders");
 
-            entity.HasOne(d => d.IdProductNavigation).WithMany(p => p.OrderProducts)
+            entity.HasOne(d => d.Product).WithMany(p => p.OrderProducts)
                 .HasForeignKey(d => d.IdProduct)
                 .HasConstraintName("fk_order_products_to_product");
         });
@@ -148,22 +146,23 @@ public partial class SportDbContext : DbContext
             entity.Property(e => e.IdProductCatigori).HasColumnName("id_product_catigori");
             entity.Property(e => e.IdSupplier).HasColumnName("id_supplier");
             entity.Property(e => e.IdUnit).HasColumnName("id_unit");
+            entity.Property(e => e.Image).HasColumnName("image");
             entity.Property(e => e.Praise).HasColumnName("praise");
             entity.Property(e => e.ProductName).HasColumnName("product_name");
 
-            entity.HasOne(d => d.IdManufacturerNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.Manufacturer).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdManufacturer)
                 .HasConstraintName("fk_products_to_manufacturers");
 
-            entity.HasOne(d => d.IdProductCatigoriNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.ProductCatigory).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdProductCatigori)
                 .HasConstraintName("fk_products_to_product_catigories");
 
-            entity.HasOne(d => d.IdSupplierNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.Supplier).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdSupplier)
                 .HasConstraintName("fk_products_to_suppliers");
 
-            entity.HasOne(d => d.IdUnitNavigation).WithMany(p => p.Products)
+            entity.HasOne(d => d.UnitsOfMeasurement).WithMany(p => p.Products)
                 .HasForeignKey(d => d.IdUnit)
                 .HasConstraintName("fk_products_to_units_of_measurement");
         });
@@ -234,7 +233,7 @@ public partial class SportDbContext : DbContext
                 .HasMaxLength(100)
                 .HasColumnName("pasvord");
 
-            entity.HasOne(d => d.IdRoleNavigation).WithMany(p => p.Users)
+            entity.HasOne(d => d.Role).WithMany(p => p.Users)
                 .HasForeignKey(d => d.IdRole)
                 .HasConstraintName("fk_useres_to_roles");
         });

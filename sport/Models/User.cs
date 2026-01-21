@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace sport.Models;
+﻿namespace sport.Models;
 
 public partial class User
 {
@@ -15,7 +12,7 @@ public partial class User
 
     public string Pasvord { get; set; } = null!;
 
-    public virtual Role IdRoleNavigation { get; set; } = null!;
+    public virtual Role Role { get; set; } = null!;
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
 }
