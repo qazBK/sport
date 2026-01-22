@@ -2,16 +2,64 @@ namespace sport
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new FormLogin());
+            bool exitprogram = false;
+
+
+            while (!exitprogram)
+            {
+                using (var formLogin = new FormLogin())
+                {
+                    if (formLogin.ShowDialog() == DialogResult.OK)
+                    {
+                        using (var formMenu = new FormMenu(formLogin.CurentUser, formLogin.IsGauste))
+                        {
+                           
+                            if (formMenu.ShowDialog() == DialogResult.OK)
+                            {
+                                if (formMenu.IsProduct==1)
+                                {
+                                    using (var formProducts = new FormProducts(formLogin.CurentUser, formLogin.IsGauste))
+                                    {
+                                        if (formProducts.ShowDialog() == DialogResult.Cancel)
+                                        {
+                                            continue;
+                                        }
+                                    }
+                                }
+                                else if (formMenu.IsProduct == 2)
+                                {
+                                    using (var FormOrders = new FormOrders(formLogin.CurentUser, formLogin.IsGauste))
+                                    {
+                                        if (FormOrders.ShowDialog() == DialogResult.Cancel)
+                                        {
+                                            continue;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        exitprogram = true;
+                    }
+                }
+
+            }
         }
     }
 }
+/*
+ using (var formProducts = new FormProducts(formLogin.CurentUser, formLogin.IsGauste))
+                        {
+                            if (formProducts.ShowDialog() == DialogResult.Cancel)
+                            {
+                                continue;
+                            }
+                        }
+                    }
+ 
+ */

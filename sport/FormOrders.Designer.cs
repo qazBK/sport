@@ -1,6 +1,6 @@
 ﻿namespace sport
 {
-    partial class FormProducts
+    partial class FormOrders
     {
         /// <summary>
         /// Required designer variable.
@@ -29,25 +29,13 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            panelHeder = new Panel();
             lbUserName = new Label();
             btnLogut = new Button();
-            dgvProducts = new DataGridView();
+            panelHeder = new Panel();
+            dgvOrders = new DataGridView();
             panelHeder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProducts).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrders).BeginInit();
             SuspendLayout();
-            // 
-            // panelHeder
-            // 
-            panelHeder.Controls.Add(lbUserName);
-            panelHeder.Controls.Add(btnLogut);
-            panelHeder.Dock = DockStyle.Top;
-            panelHeder.Location = new Point(10, 10);
-            panelHeder.Margin = new Padding(4);
-            panelHeder.Name = "panelHeder";
-            panelHeder.Padding = new Padding(0, 0, 0, 10);
-            panelHeder.Size = new Size(1123, 50);
-            panelHeder.TabIndex = 0;
             // 
             // lbUserName
             // 
@@ -77,15 +65,27 @@
             btnLogut.UseVisualStyleBackColor = false;
             btnLogut.Click += BtnLogut_Click;
             // 
-            // dgvProducts
+            // panelHeder
             // 
-            dgvProducts.AllowUserToAddRows = false;
-            dgvProducts.AllowUserToDeleteRows = false;
-            dgvProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvProducts.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dgvProducts.BackgroundColor = Color.White;
-            dgvProducts.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvProducts.ColumnHeadersVisible = false;
+            panelHeder.Controls.Add(lbUserName);
+            panelHeder.Controls.Add(btnLogut);
+            panelHeder.Dock = DockStyle.Top;
+            panelHeder.Location = new Point(10, 10);
+            panelHeder.Margin = new Padding(4);
+            panelHeder.Name = "panelHeder";
+            panelHeder.Padding = new Padding(0, 0, 0, 10);
+            panelHeder.Size = new Size(1123, 50);
+            panelHeder.TabIndex = 1;
+            // 
+            // dgvOrders
+            // 
+            dgvOrders.AllowUserToAddRows = false;
+            dgvOrders.AllowUserToDeleteRows = false;
+            dgvOrders.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvOrders.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dgvOrders.BackgroundColor = Color.White;
+            dgvOrders.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvOrders.ColumnHeadersVisible = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
             dataGridViewCellStyle1.Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
@@ -93,42 +93,42 @@
             dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvProducts.DefaultCellStyle = dataGridViewCellStyle1;
-            dgvProducts.Dock = DockStyle.Fill;
-            dgvProducts.Location = new Point(10, 60);
-            dgvProducts.Margin = new Padding(4);
-            dgvProducts.MultiSelect = false;
-            dgvProducts.Name = "dgvProducts";
-            dgvProducts.ReadOnly = true;
-            dgvProducts.RowHeadersVisible = false;
-            dgvProducts.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvProducts.Size = new Size(1123, 560);
-            dgvProducts.TabIndex = 1;
+            dgvOrders.DefaultCellStyle = dataGridViewCellStyle1;
+            dgvOrders.Dock = DockStyle.Fill;
+            dgvOrders.Location = new Point(10, 60);
+            dgvOrders.Margin = new Padding(4);
+            dgvOrders.MultiSelect = false;
+            dgvOrders.Name = "dgvOrders";
+            dgvOrders.ReadOnly = true;
+            dgvOrders.RowHeadersVisible = false;
+            dgvOrders.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvOrders.Size = new Size(1123, 560);
+            dgvOrders.TabIndex = 2;
             // 
-            // FormProducts
+            // FormOrders
             // 
             AutoScaleDimensions = new SizeF(10F, 21F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(248, 249, 250);
             ClientSize = new Size(1143, 630);
-            Controls.Add(dgvProducts);
+            Controls.Add(dgvOrders);
             Controls.Add(panelHeder);
             Font = new Font("Times New Roman", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 204);
             Margin = new Padding(4);
-            Name = "FormProducts";
+            Name = "FormOrders";
             Padding = new Padding(10);
-            Text = "Список спорт товаров";
+            Text = "Список заказв";
             panelHeder.ResumeLayout(false);
             panelHeder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dgvProducts).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvOrders).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
-        private Panel panelHeder;
-        private DataGridView dgvProducts;
-        private Button btnLogut;
         private Label lbUserName;
+        private Button btnLogut;
+        private Panel panelHeder;
+        private DataGridView dgvOrders;
     }
 }
