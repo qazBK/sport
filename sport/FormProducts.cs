@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using sport.Models;
 using sport.Properties;
+using System.Reflection.Emit;
 using System.Resources;
 using System.Windows.Forms;
 
@@ -93,12 +94,12 @@ namespace sport
         {
             if (product.Discount > 15)
             {
-                row.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#2E8857");
+                row.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#2E8B57");
                 row.DefaultCellStyle.ForeColor = Color.Wheat;
             }
             if (product.Count <= 0)
             {
-                row.DefaultCellStyle.ForeColor = Color.Black;
+                row.DefaultCellStyle.BackColor = ColorTranslator.FromHtml("#4361EE");
                 if (product.Discount <= 15)
                 {
                     row.DefaultCellStyle.ForeColor = Color.Black;
@@ -122,8 +123,19 @@ namespace sport
 
                 decimal finalPrice = (decimal)(product.Praise) *//<-----------
                      (100 - (product.Discount ?? 0)) / 100;
+    
 
-                priceText = $"Цена: {product.Praise:C}-> {finalPrice:C}";
+       
+
+                //priceText = $"Цена: {product.Praise:C\u0336}-> {finalPrice:C}";
+
+
+               
+                string oldPrice = $"{product.Praise:C}";
+                string strikePrice = "";
+                foreach (char c in oldPrice) strikePrice += c + "\u0336";
+
+                priceText = $"Цена: {strikePrice} -> {finalPrice:C}";
             }
             else
             {
